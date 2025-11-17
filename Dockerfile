@@ -19,6 +19,8 @@ RUN chmod +x /entrypoint.sh \
   && addgroup -S app \
   && adduser -S app -G app \
   && chown app:app /entrypoint.sh \
+  && chown app:app /usr/share/nginx/html/config.template.js \
+  && chown app:app /etc/nginx/nginx.conf \
   && mkdir -p /run \
   && chown -R app:app /usr/share/nginx /var/cache/nginx /var/run /run
 USER app
