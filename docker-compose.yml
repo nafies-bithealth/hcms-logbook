@@ -1,0 +1,66 @@
+version: "3.9"
+
+name: hcms-logbook
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  nginx-run:
+    driver: local
+
+services:
+  frontend-dev:
+    image: node:lts-alpine
+    working_dir: /app
+    command: sh -c "npm ci && npm run dev"
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_APP_ENV=development
+      - VITE_PUBLIC_API_BASE_URL=http://mock-api:8080
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    networks:
+      - frontend
+      - backend
+    profiles: ["dev"]
+
+  mock-api:
+    image: ghcr.io/wiremock/wiremock:3.7.2
+    command: "--verbose"
+    ports:
+      - "8081:8080"
+    networks:
+      - backend
+    profiles: ["dev","test"]
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: lts-alpine
+        NGINX_VERSION: alpine
+    environment:
+      - APP_ENV=production
+      - PUBLIC_API_BASE_URL=https://api.example.com
+    ports:
+      - "8080:8080"
+    networks:
+      - frontend
+    profiles: ["prod"]
+
+  tests:
+    image: node:lts-alpine
+    working_dir: /app
+    command: sh -c "npm ci && npx playwright install --with-deps && npm run test:e2e"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    networks:
+      - frontend
+      - backend
+    profiles: ["test"]
