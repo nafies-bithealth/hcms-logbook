@@ -28,6 +28,6 @@ RUN chmod +x /entrypoint.sh \
   && chown -R app:app /usr/share/nginx /var/cache/nginx /var/run /run
 USER app
 EXPOSE 8083
-HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 CMD wget -q --spider http://localhost:$PORT/ || exit 1
+HEALTHCHECK --interval=30s --timeout=3s --start-period=30s --retries=3 CMD wget -q --spider http://localhost:8083/ || exit 1
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
