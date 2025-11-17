@@ -21,6 +21,9 @@ RUN chmod +x /entrypoint.sh \
   && chown app:app /entrypoint.sh \
   && chown app:app /usr/share/nginx/html/config.template.js \
   && chown app:app /etc/nginx/nginx.conf.template \
+  && chown app:app /etc/nginx/nginx.conf \
+  && chgrp app /etc/nginx \ 
+  && chmod g+w /etc/nginx \
   && mkdir -p /run \
   && chown -R app:app /usr/share/nginx /var/cache/nginx /var/run /run
 USER app
