@@ -12,7 +12,7 @@ RUN npm run build
 FROM nginx:${NGINX_VERSION} AS runtime
 WORKDIR /usr/share/nginx/html
 COPY --from=builder /app/build ./
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf.template /etc/nginx/nginx.conf.template
 COPY public/config.template.js /usr/share/nginx/html/config.template.js
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh \
@@ -20,11 +20,11 @@ RUN chmod +x /entrypoint.sh \
   && adduser -S app -G app \
   && chown app:app /entrypoint.sh \
   && chown app:app /usr/share/nginx/html/config.template.js \
-  && chown app:app /etc/nginx/nginx.conf \
+  && chown app:app /etc/nginx/nginx.conf.template \
   && mkdir -p /run \
   && chown -R app:app /usr/share/nginx /var/cache/nginx /var/run /run
 USER app
-EXPOSE 8080
-HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 CMD wget -q --spider http://localhost:8080/ || exit 1
+EXPOSE 8083
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 CMD wget -q --spider http://localhost:$PORT/ || exit 1
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]

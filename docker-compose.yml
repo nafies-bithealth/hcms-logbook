@@ -16,8 +16,9 @@ services:
     working_dir: /app
     command: sh -c "npm ci && npm run dev"
     ports:
-      - "3000:3000"
+      - "${PORT:-8083}:${PORT:-8083}"
     environment:
+      - PORT=${PORT:-8083}
       - VITE_APP_ENV=development
       - VITE_PUBLIC_API_BASE_URL=http://mock-api:8080
     volumes:
@@ -35,7 +36,7 @@ services:
       - "8081:8080"
     networks:
       - backend
-    profiles: ["dev","test"]
+    profiles: ["dev", "test"]
 
   frontend:
     build:
@@ -45,10 +46,11 @@ services:
         NODE_VERSION: lts-alpine
         NGINX_VERSION: alpine
     environment:
+      - PORT=${PORT:-8083}
       - APP_ENV=production
       - PUBLIC_API_BASE_URL=https://api.example.com
     ports:
-      - "8080:8080"
+      - "${PORT:-8083}:${PORT:-8083}"
     networks:
       - frontend
     profiles: ["prod"]

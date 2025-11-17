@@ -1,11 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const raw = process.env.PORT;
+const d = 8083;
+const n = Number(raw);
+const valid = Number.isInteger(n) && n >= 1024 && n <= 65535;
+const port = valid ? n : d;
+
 export default defineConfig({
   testDir: './tests',
   timeout: 30_000,
   retries: 0,
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: `http://localhost:${port}`,
     trace: 'on-first-retry',
   },
   projects: [
@@ -15,7 +21,7 @@ export default defineConfig({
   ],
   webServer: {
     command: 'npm run dev',
-    url: 'http://localhost:3000',
+    url: `http://localhost:${port}`,
     reuseExistingServer: true,
   },
 });
