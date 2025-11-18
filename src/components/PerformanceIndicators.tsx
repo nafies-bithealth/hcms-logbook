@@ -254,7 +254,7 @@ export function PerformanceIndicators({
                 package: logbookTitle,
                 competency: indicator.category
               })}
-              className="bg-[#fcfcfd] border border-[#e4e7ec] rounded-[8px] p-[12px] hover:border-[#7f56d9] hover:shadow-md transition-all cursor-pointer"
+              className="bg-[#fcfcfd] border border-[#e4e7ec] rounded-[8px] p-[12px] hover:border-[#7f56d9] card-shadow cursor-pointer"
             >
               <div className="flex flex-col gap-[8px]">
                 <div className="flex items-start justify-between gap-2">

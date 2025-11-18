@@ -22,3 +22,7 @@ export default function AcknowledgementLogbooksPage() {
     />
   )
 }
+
+export async function getServerSideProps() {
+  return { props: {} }
+}

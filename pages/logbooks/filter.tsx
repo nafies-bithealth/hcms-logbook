@@ -29,3 +29,7 @@ export default function FilteredLogbooksPage() {
     />
   )
 }
+
+export async function getServerSideProps() {
+  return { props: {} }
+}

@@ -16,3 +16,7 @@ export default function AddLogbookPage() {
     />
   )
 }
+
+export async function getServerSideProps() {
+  return { props: {} }
+}

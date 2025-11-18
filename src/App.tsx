@@ -257,6 +257,7 @@ export default function App() {
               <PreceptorEmployeeList
                 onBack={() => setSidebarOpen(true)}
                 onSelectEmployee={handleSelectEmployee}
+                openSidebar={() => setSidebarOpen(true)}
               />
             )}
 

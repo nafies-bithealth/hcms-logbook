@@ -27,3 +27,7 @@ export default function PerformancePage() {
     />
   )
 }
+
+export async function getServerSideProps() {
+  return { props: {} }
+}

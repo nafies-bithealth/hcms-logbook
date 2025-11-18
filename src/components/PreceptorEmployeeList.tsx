@@ -14,9 +14,10 @@ interface Employee {
 interface PreceptorEmployeeListProps {
   onBack: () => void;
   onSelectEmployee: (employee: Employee) => void;
+  openSidebar: () => void;
 }
 
-export function PreceptorEmployeeList({ onBack, onSelectEmployee }: PreceptorEmployeeListProps) {
+export function PreceptorEmployeeList({ onBack, onSelectEmployee, openSidebar }: PreceptorEmployeeListProps) {  
   const [searchQuery, setSearchQuery] = useState("");
   const [positionFilter, setPositionFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
@@ -53,7 +54,7 @@ export function PreceptorEmployeeList({ onBack, onSelectEmployee }: PreceptorEmp
       {/* Title Bar */}
       <div className="bg-white border-b border-[#e4e7ec] px-[16px] py-[12px] flex items-center gap-[12px] shrink-0">
         <button
-          onClick={onBack}
+          onClick={openSidebar}
           className="w-[32px] h-[32px] flex items-center justify-center rounded-[8px] hover:bg-gray-100 transition-colors"
         >
           <Menu className="w-[20px] h-[20px] text-[#1d2939]" />

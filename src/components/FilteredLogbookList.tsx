@@ -183,7 +183,7 @@ export function FilteredLogbookList({
           {mockLogbookEntries.map((entry) => (
             <div
               key={entry.id}
-              className="bg-[#fcfcfd] border border-[#e4e7ec] rounded-[8px] p-[12px] hover:border-[#7f56d9] hover:shadow-md transition-all"
+              className="bg-[#fcfcfd] border border-[#e4e7ec] rounded-[8px] p-[12px] hover:border-[#7f56d9] card-shadow"
             >
               <div className="flex flex-col gap-[8px]">
                 {/* Status Badge */}

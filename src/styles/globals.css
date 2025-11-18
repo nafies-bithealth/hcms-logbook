@@ -39,6 +39,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --card-shadow-opacity: 0.15;
+  --card-shadow-opacity-hover: 0.19;
+  --card-shadow-color: rgba(0, 0, 0, var(--card-shadow-opacity));
+  --card-shadow-color-hover: rgba(0, 0, 0, var(--card-shadow-opacity-hover));
 }
 
 .dark {
@@ -76,6 +80,10 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+  --card-shadow-opacity: 0.18;
+  --card-shadow-opacity-hover: 0.22;
+  --card-shadow-color: rgba(0, 0, 0, var(--card-shadow-opacity));
+  --card-shadow-color-hover: rgba(0, 0, 0, var(--card-shadow-opacity-hover));
 }
 
 @theme inline {
@@ -126,6 +134,22 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .card-shadow {
+    -webkit-box-shadow: 0 0 6px 1px var(--card-shadow-color);
+    -moz-box-shadow: 0 0 6px 1px var(--card-shadow-color);
+    box-shadow: 0 0 6px 1px var(--card-shadow-color);
+    transition: box-shadow 180ms ease-in-out;
+  }
+  .card-shadow:hover,
+  .card-shadow:focus,
+  .card-shadow:focus-within {
+    -webkit-box-shadow: 0 0 8px 2px var(--card-shadow-color-hover);
+    -moz-box-shadow: 0 0 8px 2px var(--card-shadow-color-hover);
+    box-shadow: 0 0 8px 2px var(--card-shadow-color-hover);
   }
 }
 

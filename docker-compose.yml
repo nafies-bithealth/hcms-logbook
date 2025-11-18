@@ -3,29 +3,25 @@ version: "3.9"
 name: hcms-logbook
 
 networks:
-  frontend:
+  webnet:
   backend:
 
-volumes:
-  nginx-run:
-    driver: local
-
 services:
-  frontend-dev:
+  web-dev:
     image: node:lts-alpine
     working_dir: /app
     command: sh -c "npm ci && npm run dev"
     ports:
-      - "${PORT:-8083}:${PORT:-8083}"
+      - "${PORT:-8083}:3000"
     environment:
       - PORT=${PORT:-8083}
-      - VITE_APP_ENV=development
-      - VITE_PUBLIC_API_BASE_URL=http://mock-api:8080
+      - NEXT_PUBLIC_APP_ENV=development
+      - NEXT_PUBLIC_PUBLIC_API_BASE_URL=http://mock-api:8080
     volumes:
       - ./:/app
       - /app/node_modules
     networks:
-      - frontend
+      - webnet
       - backend
     profiles: ["dev"]
 
@@ -38,21 +34,21 @@ services:
       - backend
     profiles: ["dev", "test"]
 
-  frontend:
+  web:
     build:
       context: .
       dockerfile: Dockerfile
       args:
         NODE_VERSION: lts-alpine
-        NGINX_VERSION: alpine
     environment:
       - PORT=${PORT:-8083}
-      - APP_ENV=production
-      - PUBLIC_API_BASE_URL=https://api.example.com
+      - NODE_ENV=production
+      - NEXT_PUBLIC_APP_ENV=production
+      - NEXT_PUBLIC_PUBLIC_API_BASE_URL=https://api.example.com
     ports:
       - "${PORT:-8083}:${PORT:-8083}"
     networks:
-      - frontend
+      - webnet
     profiles: ["prod"]
 
   tests:
@@ -63,6 +59,6 @@ services:
       - ./:/app
       - /app/node_modules
     networks:
-      - frontend
+      - webnet
       - backend
     profiles: ["test"]

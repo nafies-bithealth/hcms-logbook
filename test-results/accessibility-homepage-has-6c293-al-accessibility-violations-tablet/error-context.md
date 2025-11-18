@@ -1,0 +1,95 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - img [ref=e11]
+        - generic [ref=e13]:
+          - paragraph [ref=e14]: Nurse Portal
+          - paragraph [ref=e15]: Clinical System
+      - button [ref=e16]:
+        - img [ref=e17]
+    - generic [ref=e21]:
+      - generic [ref=e22]: JD
+      - generic [ref=e23]:
+        - paragraph [ref=e24]: Jane Doe
+        - paragraph [ref=e25]: Senior Clinical Nurse
+    - navigation [ref=e26]:
+      - button "Logbook Employee" [ref=e27]:
+        - img [ref=e28]
+        - text: Logbook Employee
+      - button "Logbook Preceptor" [ref=e30]:
+        - img [ref=e31]
+        - text: Logbook Preceptor
+      - button "Logbook Acknowledgement" [ref=e34]:
+        - img [ref=e35]
+        - text: Logbook Acknowledgement
+    - button "Logout" [ref=e39]:
+      - img [ref=e40]
+      - text: Logout
+  - generic [ref=e45]:
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - img [ref=e49]
+        - generic [ref=e51]:
+          - paragraph [ref=e52]: Nurse Portal
+          - paragraph [ref=e53]: Clinical System
+      - button [ref=e54]:
+        - img [ref=e55]
+    - generic [ref=e59]:
+      - generic [ref=e60]: JD
+      - generic [ref=e61]:
+        - paragraph [ref=e62]: Jane Doe
+        - paragraph [ref=e63]: Senior Clinical Nurse
+    - navigation [ref=e64]:
+      - button "Logbook Employee" [ref=e65]:
+        - img [ref=e66]
+        - text: Logbook Employee
+      - button "Logbook Preceptor" [ref=e68]:
+        - img [ref=e69]
+        - text: Logbook Preceptor
+      - button "Logbook Acknowledgement" [ref=e72]:
+        - img [ref=e73]
+        - text: Logbook Acknowledgement
+    - button "Logout" [ref=e77]:
+      - img [ref=e78]
+      - text: Logout
+  - main [ref=e81]:
+    - generic [ref=e82]:
+      - generic [ref=e84]:
+        - button [ref=e85]:
+          - img [ref=e86]
+        - paragraph [ref=e87]: Logbook
+      - generic [ref=e89]:
+        - button "Dashboard" [ref=e90]:
+          - paragraph [ref=e91]: Dashboard
+        - button "Performance Indicator" [ref=e92]:
+          - paragraph [ref=e93]: Performance Indicator
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - paragraph [ref=e96]: Welcome Back! 👋
+          - paragraph [ref=e97]: Track your progress and achievements
+        - generic [ref=e98]:
+          - button "Current Level Senior Clinical Nurse/Specialist - Medical Surgical Basic - Level 1 1/ 25 10%" [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e102]: Current Level
+              - paragraph [ref=e104]: Senior Clinical Nurse/Specialist - Medical Surgical Basic - Level 1
+              - generic [ref=e105]:
+                - generic [ref=e106]:
+                  - text: "1"
+                  - generic [ref=e107]: / 25
+                - generic [ref=e109]: 10%
+          - button "Target Level Senior Clinical Nurse/Specialist - Medical Surgical Basic - Level 2 1/ 25 10%" [ref=e110]:
+            - generic [ref=e111]:
+              - generic [ref=e113]: Target Level
+              - paragraph [ref=e115]: Senior Clinical Nurse/Specialist - Medical Surgical Basic - Level 2
+              - generic [ref=e116]:
+                - generic [ref=e117]:
+                  - text: "1"
+                  - generic [ref=e118]: / 25
+                - generic [ref=e120]: 10%
+      - button "Add New Logbook" [ref=e122]:
+        - paragraph [ref=e123]: Add New Logbook
+```

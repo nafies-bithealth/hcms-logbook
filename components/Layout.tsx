@@ -26,15 +26,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="w-full min-h-screen bg-white">
       <div className="md:grid md:grid-cols-[280px_1fr] md:min-h-screen">
-        {/* <div className="hidden md:block border-r border-[#e4e7ec]">
-          <LegacySidebar
-            isOpen={true}
-            onClose={() => void 0}
-            currentMenu={currentMenu}
-            onMenuSelect={handleMenuSelect}
-            mode="static"
-          />
-        </div> */}
         <div className="md:hidden">
           <LegacySidebar
             isOpen={sidebarOpen}

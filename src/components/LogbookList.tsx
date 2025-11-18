@@ -127,7 +127,7 @@ export function LogbookList({ onMenuClick, onCardClick, onAddLogbook, onViewIndi
                 <button
                   key={entry.id}
                   onClick={() => onCardClick(entry)}
-                  className={`relative overflow-hidden rounded-[16px] p-[16px] w-full text-left shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 ${
+                  className={`relative overflow-hidden rounded-[16px] p-[16px] w-full text-left card-shadow transition-transform transform hover:-translate-y-1 ${
                     entry.levelType === "current"
                       ? "bg-gradient-to-br from-white via-white to-[#f9f5ff]"
                       : "bg-gradient-to-br from-white via-white to-[#fffaeb]"

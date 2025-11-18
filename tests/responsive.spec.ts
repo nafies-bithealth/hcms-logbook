@@ -19,7 +19,7 @@ test.describe('Responsive layout', () => {
     await page.context().grantPermissions([]);
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
-    const sidebar = page.locator('div').filter({ hasText: 'Nurse Portal' });
+    const sidebar = page.locator('[data-testid="desktop-sidebar"]');
     await expect(sidebar).toBeVisible();
   });
 });

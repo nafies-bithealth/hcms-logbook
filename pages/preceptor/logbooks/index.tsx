@@ -22,3 +22,7 @@ export default function PreceptorLogbooksPage() {
     />
   )
 }
+
+export async function getServerSideProps() {
+  return { props: {} }
+}
