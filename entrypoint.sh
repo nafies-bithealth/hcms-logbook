@@ -9,10 +9,7 @@ else
   APP_PORT="$DEFAULT_PORT"
 fi
 export APP_PORT
-if [ -f /usr/share/nginx/html/config.template.js ]; then
-  envsubst < /usr/share/nginx/html/config.template.js > /usr/share/nginx/html/config.js
-fi
-if [ -f /etc/nginx/nginx.conf.template ]; then
-  envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf
+if [ -f /app/public/config.template.js ]; then
+  envsubst < /app/public/config.template.js > /app/public/config.js
 fi
 exec "$@"
